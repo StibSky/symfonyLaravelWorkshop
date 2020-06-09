@@ -12,5 +12,6 @@ class pokeApi extends Controller
         var_dump($response);
         return view('welcome', compact('response'));
     }
+    
     }
 
