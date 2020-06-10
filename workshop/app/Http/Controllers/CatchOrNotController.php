@@ -25,6 +25,7 @@ class CatchOrNotController extends Controller
             $pokemon = new Pokemon();
             $pokemon->setName($getresponse->name);
             $pokemon->setLevel($level);
+            $pokemon->setPokeid($getresponse->id);
             $pokemon->save();
             $user = Auth::user();
             $user->setInventory($getresponse->id);

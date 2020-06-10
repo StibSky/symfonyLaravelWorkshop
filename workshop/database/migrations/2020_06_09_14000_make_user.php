@@ -21,12 +21,12 @@ class MakeUser extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->bigInteger('inventory')->unsigned()->nullable();
+            $table->integer('inventory')->nullable()->unsigned();
         });
 
         Schema::table('users' ,function (Blueprint $table){
             $table->foreign('inventory')
-                ->references('id')
+                ->references('pokeid')
                 ->on('pokemon')
                 ->onDelete('cascade');
         });
