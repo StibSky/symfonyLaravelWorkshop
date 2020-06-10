@@ -64,5 +64,9 @@ class Pokemon extends Model
         $this->level = $level;
     }
 
+    public function User()
+    {
+        return $this->belongsTo('App\User');
+    }
 
 }
