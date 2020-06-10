@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomepageController@index');
+
+
+Route::get('/poke', 'pokeApi@pokemon');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
