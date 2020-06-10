@@ -22,26 +22,24 @@ class CatchOrNotController extends Controller
 
         function saveToDB($getresponse, $level)
         {
+            $user = Auth::user();
             $pokemon = new Pokemon();
             $pokemon->setName($getresponse->name);
             $pokemon->setLevel($level);
-            $pokemon->setPokeid($getresponse->id);
+            $pokemon->setUserid($user->id);
             $pokemon->save();
-            $user = Auth::user();
-            $user->setInventory($getresponse->id);
-            $user->save();
         }
 
         if ($chance > 100) {
             saveToDb($getresponse, $level);
-            return redirect()->back()->withErrors(['caught' => 'YOU CAUGHT THE POKEMON']);
+            return redirect()->back()->withErrors(['green' => 'YOU CAUGHT THE POKEMON']);
         } else {
             $random = random_int(1, 100);
             if ($random > $chance) {
                 return redirect()->back()->withErrors(['caught' => 'pokeman too stronk']);
             } else {
                 saveToDb($getresponse, $level);
-                return redirect()->back()->withErrors(['caught' => 'YOU CAUGHT THE POKEMON']);
+                return redirect()->back()->withErrors(['green' => 'YOU CAUGHT THE POKEMON']);
             }
         }
 

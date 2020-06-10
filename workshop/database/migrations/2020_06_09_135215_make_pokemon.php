@@ -18,9 +18,15 @@ class MakePokemon extends Migration
             $table->id();
             $table->string('name')->default('pikaaaa');
             $table->integer('level')->default('10000000');
-            $table->integer('pokeid')->nullable()->unsigned()->unique();
+            $table->bigInteger('userid')->nullable()->unsigned();
         });
 
+        Schema::table('pokemon' ,function (Blueprint $table){
+            $table->foreign('userid')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+        });
     }
 
     /**

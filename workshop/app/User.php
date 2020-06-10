@@ -18,24 +18,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'inventory'
+        'name', 'email', 'password'
     ];
-
-    /**
-     * @return mixed
-     */
-    public function getInventory()
-    {
-        return $this->inventory;
-    }
-
-    /**
-     * @param mixed $inventory
-     */
-    public function setInventory($inventory): void
-    {
-        $this->inventory = $inventory;
-    }
 
     /**
      * The attributes that should be hidden for arrays.

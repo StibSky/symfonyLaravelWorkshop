@@ -7,12 +7,29 @@ use Illuminate\Database\Eloquent\Model;
 class Pokemon extends Model
 {
 
+    public $timestamps = false;
     private $id;
+
+    /**
+     * @return mixed
+     */
+    public function getUserid()
+    {
+        return $this->userid;
+    }
+
+    /**
+     * @param mixed $userid
+     */
+    public function setUserid($userid): void
+    {
+        $this->userid = $userid;
+    }
 
 
 
     protected $fillable = [
-        'name', 'level','pokeid'
+        'name', 'level','userid'
     ];
     /**
      * @return mixed
@@ -29,24 +46,6 @@ class Pokemon extends Model
     {
         $this->name = $name;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getPokeid()
-    {
-        return $this->pokeid;
-    }
-
-    /**
-     * @param mixed $pokeid
-     */
-    public function setPokeid($pokeid): void
-    {
-        $this->pokeid = $pokeid;
-    }
-    public $timestamps = false;
-
 
     /**
      * @return mixed
@@ -80,7 +79,6 @@ class Pokemon extends Model
     {
         $this->level = $level;
     }
-
 
 
     public function User()

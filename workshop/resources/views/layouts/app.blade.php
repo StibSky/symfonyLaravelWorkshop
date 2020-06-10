@@ -80,6 +80,10 @@
             <p class="alert alert-danger">{{ $message }}</p>
 
             @enderror
+            @error('green')
+            <p class="alert alert-success">{{ $message }}</p>
+
+            @enderror
         </main>
     </div>
 </body>
