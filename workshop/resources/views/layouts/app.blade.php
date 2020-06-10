@@ -76,6 +76,10 @@
 
         <main class="py-4">
             @yield('content')
+            @error('caught')
+            <p class="alert alert-danger">{{ $message }}</p>
+
+            @enderror
         </main>
     </div>
 </body>
