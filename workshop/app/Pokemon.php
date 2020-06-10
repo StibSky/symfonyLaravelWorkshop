@@ -9,14 +9,12 @@ class Pokemon extends Model
 
     private $id;
 
-
     public $timestamps = false;
 
-    protected $fillable = [
-        'name',
-        'level',
-    ];
 
+    protected $fillable = [
+        'name', 'level'
+    ];
     /**
      * @return mixed
      */
@@ -48,5 +46,23 @@ class Pokemon extends Model
     {
         $this->id = $id;
     }
+
+
+    /**
+     * @return mixed
+     */
+    public function getLevel()
+    {
+        return $this->level;
+    }
+
+    /**
+     * @param mixed $moves
+     */
+    public function setLevel($level): void
+    {
+        $this->level = $level;
+    }
+
 
 }
