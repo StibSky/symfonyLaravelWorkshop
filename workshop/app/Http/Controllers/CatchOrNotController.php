@@ -15,9 +15,10 @@ class CatchOrNotController extends Controller
 
         $chance = 100-$level + 5;
 
-        function saveToDB($getresponse){
+        function saveToDB($getresponse, $level){
             $pokemon = new Pokemon();
-            $pokemon->name($getresponse->name);
+            $pokemon->setName($getresponse->name);
+            $pokemon->setLevel($level);
             $pokemon->save();
 
         }
@@ -32,7 +33,7 @@ class CatchOrNotController extends Controller
                 echo($random. 'CETCH');
             }
         }
-        saveToDb($getresponse);
+        saveToDb($getresponse, $level);
 
     }
 }
