@@ -10,17 +10,13 @@ class inventoryController extends Controller
 {
     function index() {
 
-        $user = Pokemon::with('users')
-            ->where('userid', Auth::user()->id);
-
-
-        foreach ($user as $pokemon) {
-            var_dump($pokemon->name);
-        }
+        $user = Pokemon::with('user')
+            ->where('userid', Auth::id())
+            ->get();
 
 
         return view('inventory.inventory', [
-
+            'pokemons' => $user,
         ]);
     }
 }

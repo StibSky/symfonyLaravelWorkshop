@@ -13,6 +13,22 @@ class Pokemon extends Model
     /**
      * @return mixed
      */
+    public function getSprite()
+    {
+        return $this->sprite;
+    }
+
+    /**
+     * @param mixed $sprite
+     */
+    public function setSprite($sprite): void
+    {
+        $this->sprite = $sprite;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getUserid()
     {
         return $this->userid;
@@ -29,7 +45,7 @@ class Pokemon extends Model
 
 
     protected $fillable = [
-        'name', 'level','userid'
+        'name', 'level','userid', 'sprite',
     ];
     /**
      * @return mixed
