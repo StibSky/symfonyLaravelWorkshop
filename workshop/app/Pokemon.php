@@ -12,6 +12,9 @@ class Pokemon extends Model
 
     private $moves;
 
+    public $timestamps = false;
+
+
     /**
      * @return mixed
      */

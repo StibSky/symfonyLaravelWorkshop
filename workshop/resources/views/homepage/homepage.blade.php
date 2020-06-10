@@ -1,8 +1,6 @@
-@extends('include.base')
+@extends('layouts.app')
+
 @section('content')
-    <div>
-        <p>
-            ALLOOOOO
-        </p>
-    </div>
+
+
 @endsection

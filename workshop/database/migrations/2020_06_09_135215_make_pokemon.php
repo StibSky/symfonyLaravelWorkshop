@@ -15,10 +15,9 @@ class MakePokemon extends Migration
     {
         Schema::create('pokemon', function (Blueprint $table)
         {
-            $table->id();
-            $table->string('name');
-            $table->integer('level');
-            $table->integer('belongs_to')->unsigned();
+            $table->id()->unsigned();
+            $table->string('name')->default('pikaaaa');
+            $table->integer('level')->default('10000000');
         });
 
     }
