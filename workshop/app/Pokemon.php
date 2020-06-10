@@ -6,14 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pokemon extends Model
 {
-    private $name;
 
     private $id;
 
-    private $moves;
 
     public $timestamps = false;
 
+    protected $fillable = [
+        'name',
+        'level',
+    ];
 
     /**
      * @return mixed
@@ -46,22 +48,5 @@ class Pokemon extends Model
     {
         $this->id = $id;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getMoves()
-    {
-        return $this->moves;
-    }
-
-    /**
-     * @param mixed $moves
-     */
-    public function setMoves($moves): void
-    {
-        $this->moves = $moves;
-    }
-
 
 }
