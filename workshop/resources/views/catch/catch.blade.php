@@ -12,5 +12,6 @@
             <input type="text" hidden name="pokeId" value="{{  ucfirst($pokemon->id) }}">
             <input type="text" hidden name="level" value="{{  $level }}">
         </form>
+        <P>You have {{ $pokeballs }} pokeballs remaining</P>
     </div>
 @endsection

@@ -20,8 +20,9 @@ Route::get('/poke', 'pokeApi@pokemon');
 Route::get('/catch', 'CatchController@index')->name('catch');
 Route::get('/inventory', 'InventoryController@index')->name('inventory');
 Route::post('/catchOrNot', 'CatchOrNotController@index')->name('catchOrNot');
-
-
+Route::get('/store', 'StoreController@display')->name('store');
+Route::post('/buy', 'StoreController@index')->name('buy');
+Route::post('/sell', 'StoreController@sell')->name('sell');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

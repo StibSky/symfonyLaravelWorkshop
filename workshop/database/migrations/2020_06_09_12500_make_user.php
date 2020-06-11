@@ -21,6 +21,8 @@ class MakeUser extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->integer('money')->default(500);
+            $table->integer('pokeballs')->default(10);
         });
 
 

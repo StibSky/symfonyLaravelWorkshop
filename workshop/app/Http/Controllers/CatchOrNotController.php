@@ -15,6 +15,15 @@ class CatchOrNotController extends Controller
             return redirect()->back()->withErrors(['caught' => 'you ran away and did not catch the pokemon']);
         }
 
+        $user = Auth::user();
+
+        if ($user->pokeballs == 0){
+            $user->pokeballs = 0;
+            $user->save();
+            return redirect()->back()->withErrors(['caught' => "You don't have enough pokeballs. Go buy some more"]);
+        }
+        $user->pokeballs -= 1;
+        $user->save();
         $level = $_POST['level'];
         $getresponse = Http::get("https://pokeapi.co/api/v2/pokemon/" . $_POST['pokeId'] . "/")->object();
         $pokemon = Http::get("https://pokeapi.co/api/v2/pokemon/" . random_int(1,150) . "/")->object();

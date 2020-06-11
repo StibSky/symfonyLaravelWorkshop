@@ -19,4 +19,6 @@ class inventoryController extends Controller
             'pokemons' => $user,
         ]);
     }
+
+
 }
