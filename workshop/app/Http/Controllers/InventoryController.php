@@ -12,7 +12,7 @@ class inventoryController extends Controller
 
         $user = Pokemon::with('user')
             ->where('userid', Auth::id())
-            ->get();
+            ->paginate('10');
 
 
         return view('inventory.inventory', [

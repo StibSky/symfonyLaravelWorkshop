@@ -17,8 +17,8 @@ Route::get('/', 'HomepageController@index');
 
 
 Route::get('/poke', 'pokeApi@pokemon');
-Route::get('/catch', 'CatchController@index');
-Route::get('/inventory', 'InventoryController@index');
+Route::get('/catch', 'CatchController@index')->name('catch');
+Route::get('/inventory', 'InventoryController@index')->name('inventory');
 Route::post('/catchOrNot', 'CatchOrNotController@index')->name('catchOrNot');
 
 
