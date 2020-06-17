@@ -13,5 +13,16 @@
             <input type="text" hidden name="level" value="{{ $level }}">
         </form>
         <P>You have {{ $pokeballs }} pokeballs remaining</P>
+        <br><br><br>
+        <form action="{{ route ('catch') }}" method="GET">
+            <button name="gen1">gen1</button>
+            @if(Auth::user()->unlockgen > 1)
+            <button name="gen2">gen2</button>
+            @endif
+            @if(Auth::user()->unlockgen > 2)
+                <button name="gen3">gen3</button>
+            @endif
+        </form>
+
     </div>
 @endsection

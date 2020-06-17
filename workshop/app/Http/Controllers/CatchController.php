@@ -10,7 +10,16 @@ class CatchController extends Controller
 {
     public function index()
     {
-        $random = random_int(1, 150);
+        $random = random_int(1, 151);
+        if(isset($_GET["gen1"])){
+            $random = random_int(1,151);
+        }
+        if(isset($_GET["gen2"])){
+            $random = random_int(152,251);
+        }
+        if(isset($_GET["gen3"])){
+            $random = random_int(252,386);
+        }
 
         $getresponse = Http::get("https://pokeapi.co/api/v2/pokemon/".$random."/")->object();
         $user = Auth::user();
