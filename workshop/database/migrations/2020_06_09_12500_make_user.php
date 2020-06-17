@@ -23,6 +23,7 @@ class MakeUser extends Migration
             $table->timestamps();
             $table->integer('money')->default(500);
             $table->integer('pokeballs')->default(10);
+            $table->integer('unlockgen')->default(1);
         });
 
 

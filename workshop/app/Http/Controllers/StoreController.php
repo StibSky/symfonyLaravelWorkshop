@@ -12,6 +12,8 @@ class StoreController extends Controller
     {
         $user = Auth::user();
         $COSTOFPOKEBALL = 100;
+        $COSTONGEN2 = 2000;
+        $COSTONGEN3 = 10000;
         if (isset($_POST['pokeball'])){
             if ($user->money < $COSTOFPOKEBALL){
                 return redirect()->back()->withErrors(['caught' => "You don't have enough money"]);
@@ -29,6 +31,30 @@ class StoreController extends Controller
             $user->pokeballs += 10;
             $user->save();
             return redirect()->back()->withErrors(['green' => 'You have bought 10 pokéballs']);
+        }
+        if (isset($_POST['gen2unlock'])){
+            if ($user->money < ($COSTONGEN2)){
+                return redirect()->back()->withErrors(['caught' => "You don't have enough money"]);
+            }
+            if ($user->unlockgen > 1) {
+                return redirect()->back()->withErrors(['caught' => "You already yeeted this"]);
+            }
+            $user->money -= $COSTONGEN2;
+            $user->unlockgen = 2;
+            $user->save();
+            return redirect()->back()->withErrors(['green' => 'You have bought gen2']);
+        }
+        if (isset($_POST['gen3unlock'])){
+            if ($user->money < ($COSTONGEN3)){
+                return redirect()->back()->withErrors(['caught' => "You don't have enough money"]);
+            }
+            if ($user->unlockgen > 2) {
+                return redirect()->back()->withErrors(['caught' => "You already yeeted this"]);
+            }
+            $user->money -= $COSTONGEN3;
+            $user->unlockgen = 3;
+            $user->save();
+            return redirect()->back()->withErrors(['green' => 'You have bought gen3']);
         }
 
         return view('store.store', [

@@ -11,10 +11,16 @@
                 <button name="pokeball10" style="width: 100px">Buy 10 pokéballs</button>
             </div>
             <div class="d-flex flex-column align-items-center">
-                <img src="https://i.pinimg.com/originals/7f/19/cf/7f19cfa2e7e5d580f4548204cd9552d5.png" style="width: 100px; height: auto" alt="" class="d-flex flex-column">
-                <p>MewTwo</p>
-                <p>10000$</p>
-                <button name="mewtwo">Buy a shiny mewtwo</button>
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/172.png" style="width: 100px; height: auto" alt="" class="d-flex flex-column">
+                <p>gen2</p>
+                <p>2000$</p>
+                <button name="gen2unlock">Unlock gen 2 catch</button>
+            </div>
+            <div class="d-flex flex-column align-items-center">
+                <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/258.png" style="width: 100px; height: auto" alt="" class="d-flex flex-column">
+                <p>gen3</p>
+                <p>10 000$</p>
+                <button name="gen3unlock">Unlock gen 3 catch</button>
             </div>
         </form>
     </div>

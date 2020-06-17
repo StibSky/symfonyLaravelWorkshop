@@ -20,6 +20,7 @@ class MakePokemon extends Migration
             $table->integer('level')->default('10000000');
             $table->string('sprite');
             $table->bigInteger('userid')->nullable()->unsigned();
+
         });
 
         Schema::table('pokemon' ,function (Blueprint $table){
