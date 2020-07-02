@@ -26,7 +26,6 @@ class CatchOrNotController extends Controller
         $user->save();
         $level = $_POST['level'];
         $getresponse = Http::get("https://pokeapi.co/api/v2/pokemon/" . $_POST['pokeId'] . "/")->object();
-        $pokemon = Http::get("https://pokeapi.co/api/v2/pokemon/" . random_int(1,150) . "/")->object();
         $chance = 100 - $level + 5;
 
         function saveToDB($getresponse, $level)
