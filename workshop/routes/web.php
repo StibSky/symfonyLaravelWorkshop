@@ -23,6 +23,9 @@ Route::post('/catchOrNot', 'CatchOrNotController@index')->name('catchOrNot');
 Route::get('/store', 'StoreController@display')->name('store');
 Route::post('/buy', 'StoreController@index')->name('buy');
 Route::post('/sell', 'StoreController@sell')->name('sell');
+Route::post('/level', 'StoreController@levelup')->name('level');
+Route::post('/shiny', 'StoreController@shiny')->name('shiny');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

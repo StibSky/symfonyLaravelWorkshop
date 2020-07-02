@@ -19,6 +19,7 @@ class MakePokemon extends Migration
             $table->string('name')->default('pikaaaa');
             $table->integer('level')->default('10000000');
             $table->string('sprite');
+            $table->string('shinysprite');
             $table->bigInteger('userid')->nullable()->unsigned();
 
         });

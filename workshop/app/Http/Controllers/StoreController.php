@@ -68,6 +68,7 @@ class StoreController extends Controller
     }
     public function sell()
     {
+
         $pokemon = Pokemon::find([$_POST['sell']])->first();
         $levelnumber = $pokemon->level;
         $betweenNumber = 5 + ($levelnumber/10);
@@ -80,4 +81,39 @@ class StoreController extends Controller
 
         return redirect()->route('inventory');
     }
+
+    public function levelup() {
+        $pokemon = Pokemon::find([$_POST['level']])->first();
+
+        $user = Auth::user();
+        if ($user->money > $pokemon->level *2 && $pokemon->level < 100) {
+            $user->money -= round(($pokemon->level * 2)*0.75);
+            $pokemon->setLevel($pokemon->level +1);
+        }
+        else {
+            return redirect()->back()->withErrors(['caught' => 'not enough money or max level already']);
+
+        }
+        $pokemon->save();
+        $user->save();
+
+        return redirect()->route('inventory');
+    }
+
+    public function shiny() {
+        $pokemon = Pokemon::find([$_POST['shiny']])->first();
+        $user = Auth::user();
+        if ($pokemon->level == 100) {
+            $pokemon->setSprite($pokemon->shinysprite);
+            $pokemon->save();
+        }
+        else {
+            return redirect()->back()->withErrors(['caught' => 'not level 100']);
+        }
+        return redirect()->route('inventory');
+
+    }
+
+
+
 }

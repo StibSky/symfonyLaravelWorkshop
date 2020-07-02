@@ -6,8 +6,8 @@
             <img src="{{ $pokemon->sprites->front_default }}" alt="">
             <p> {{  ucfirst($pokemon->name) }}</p>
             <p>Level: {{ $level }}</p>
-            <button name="catch">Catch</button>
-            <button name="run">Run Away!</button>
+            <button class=" btn btn-success" name="catch">Catch</button>
+            <button name="run" class="btn btn-danger">Run Away!</button>
 
             <input type="text" hidden name="pokeId" value="{{  ucfirst($pokemon->id) }}">
             <input type="text" hidden name="level" value="{{  $level }}">
@@ -15,12 +15,12 @@
         <P>You have {{ $pokeballs }} pokeballs remaining</P>
         <br><br><br>
         <form action="{{ route ('catch') }}" method="GET">
-            <button name="gen1">gen1</button>
+            <button class=" btn btn-info"  name="gen1">gen1</button>
             @if(Auth::user()->unlockgen > 1)
-            <button name="gen2">gen2</button>
+            <button class=" btn btn-info" name="gen2">gen2</button>
             @endif
             @if(Auth::user()->unlockgen > 2)
-                <button name="gen3">gen3</button>
+                <button class=" btn btn-info" name="gen3">gen3</button>
             @endif
         </form>
 

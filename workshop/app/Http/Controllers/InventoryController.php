@@ -15,6 +15,7 @@ class inventoryController extends Controller
             ->paginate('10');
 
 
+
         return view('inventory.inventory', [
             'pokemons' => $user,
         ]);

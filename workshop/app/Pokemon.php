@@ -13,6 +13,21 @@ class Pokemon extends Model
     /**
      * @return mixed
      */
+    public function getShinysprite()
+    {
+        return $this->shinysprite;
+    }
+
+    /**
+     * @param mixed $shinysprite
+     */
+    public function setShinysprite($shinysprite): void
+    {
+        $this->shinysprite = $shinysprite;
+    }
+    /**
+     * @return mixed
+     */
     public function getSprite()
     {
         return $this->sprite;
